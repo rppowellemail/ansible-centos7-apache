@@ -1,0 +1,23 @@
+---
+- name: yum install apache on CentOS7
+
+  sudo: True
+
+  # optional skip gathering facts - faster, but less safe
+  # gather_facts: False
+
+  hosts: "{{ variable_host | default('webservers') }}"
+
+  tasks:
+
+  #- debug: var=hostvars[inventory_hostname]
+
+  - name: yum install apache
+    yum: pkg=httpd
+
+  - name: enable apache service
+    service: name=httpd state=started enabled=yes
+    notify: restart apache
+
+  - name: restart apache
+    service: name=httpd state=restarted
