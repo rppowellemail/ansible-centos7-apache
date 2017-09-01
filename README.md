@@ -55,6 +55,31 @@ To manually install on specific instance `ec2-13-59-243-60.us-east-2.compute.ama
 ansible-playbook -i 'ec2-13-59-243-60.us-east-2.compute.amazonaws.com,' install_apache.yml --user=centos --extra-vars "variable_host=ec2-13-59-243-60.us-east-2.compute.amazonaws.com" --private-key=~/Desktop/kp/2017-08-31-ansible-centos7-apache.pem 
 ```
 
+Script runs - verify output:
+
+```
+PLAY [yum install apache on CentOS7] *********************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************
+changed: [ec2-13-59-243-60.us-east-2.compute.amazonaws.com]
+
+TASK [yum install apache] ********************************************************************************************************
+changed: [ec2-13-59-243-60.us-east-2.compute.amazonaws.com]
+
+TASK [enable apache service] *****************************************************************************************************
+changed: [ec2-13-59-243-60.us-east-2.compute.amazonaws.com]
+
+TASK [restart apache] ************************************************************************************************************
+changed: [ec2-13-59-243-60.us-east-2.compute.amazonaws.com]
+
+PLAY RECAP ***********************************************************************************************************************
+ec2-13-59-243-60.us-east-2.compute.amazonaws.com : ok=4    changed=4    unreachable=0    failed=0   
+```
+
+Verify server is running by going to webpage:
+
+* http://http://ec2-13-59-243-60.us-east-2.compute.amazonaws.com/
+
 ----
 
 References:
