@@ -43,16 +43,24 @@ Should be logged into target instance.
 
 ## Run Ansible
 
+Update the instance info into `hosts` file:
+
+```
+[webservers]
+ec2-13-59-243-60.us-east-2.compute.amazonaws.com
+```
+
+
 Run ansible playbook to install apache into instances in `hosts` file:
 
 ```
-ansible-playbook -i hosts install_apache.yml --user=centos --private-key=~/Desktop/kp/2017-08-31-ansible-centos7-apache.pem 
+ansible-playbook -i hosts install_apache.yml --user=centos --private-key=ansible-centos7-apache.pem 
 ```
 
 To manually install on specific instance `ec2-13-59-243-60.us-east-2.compute.amazonaws.com`:
 
 ```
-ansible-playbook -i 'ec2-13-59-243-60.us-east-2.compute.amazonaws.com,' install_apache.yml --user=centos --extra-vars "variable_host=ec2-13-59-243-60.us-east-2.compute.amazonaws.com" --private-key=~/Desktop/kp/2017-08-31-ansible-centos7-apache.pem 
+ansible-playbook -i 'ec2-13-59-243-60.us-east-2.compute.amazonaws.com,' install_apache.yml --user=centos --extra-vars "variable_host=ec2-13-59-243-60.us-east-2.compute.amazonaws.com" --private-key=ansible-centos7-apache.pem 
 ```
 
 Script runs - verify output:
