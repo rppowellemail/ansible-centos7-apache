@@ -86,7 +86,7 @@ ec2-13-59-243-60.us-east-2.compute.amazonaws.com : ok=4    changed=4    unreacha
 
 Verify server is running by going to webpage:
 
-* http://http://ec2-13-59-243-60.us-east-2.compute.amazonaws.com/
+* http://ec2-13-59-243-60.us-east-2.compute.amazonaws.com/
 
 ----
 
